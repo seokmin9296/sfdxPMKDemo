@@ -120,5 +120,12 @@
                 </lightning-button-group>
             </lightning-layout-item>
         </lightning-layout>
+        <lightning-layout style="padding: 16px;">
+            <lightning-datatable
+                        key-field="id"
+                        data={data}
+                        columns={columns}>
+                    </lightning-datatable>
+        </lightning-layout>
     </lightning-card>
 </template>
