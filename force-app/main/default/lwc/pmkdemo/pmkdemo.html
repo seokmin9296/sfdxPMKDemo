@@ -1,0 +1,124 @@
+<template>
+    <lightning-card title="제품">
+        <lightning-layout>
+            <lightning-layout-item size="2">
+                <h1 class="slds-text-heading_small slds-m-bottom_medium slds-text-align_center">제품 코덴티파이</h1>
+            </lightning-layout-item>
+            <lightning-layout-item size="8">
+                <lightning-input type="text" variant="label-hidden"></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item>
+                <lightning-button-group>
+                    <lightning-button-icon icon-name="utility:zoomin" variant="brand" alternative-text="검색" class="slds-m-left_xx-small" title="검색"></lightning-button-icon>
+                    <lightning-button variant="brand" label="입고하기"></lightning-button>
+                    <lightning-button variant="brand" label="초기화"></lightning-button>
+                </lightning-button-group>
+            </lightning-layout-item>
+        </lightning-layout>
+        <lightning-layout>
+            <lightning-layout-item size="2">
+                <h1 class="slds-text-heading_small slds-m-bottom_medium slds-text-align_center">Material description</h1>
+            </lightning-layout-item>
+            <lightning-layout-item size="9">
+                <lightning-input type="text" variant="label-hidden"></lightning-input>
+            </lightning-layout-item>
+        </lightning-layout>
+        <lightning-layout>
+            <lightning-layout-item size="2">
+                <h1 class="slds-text-heading_small slds-m-bottom_medium slds-text-align_center">Version</h1>
+            </lightning-layout-item>
+            <lightning-layout-item size="9">
+                <lightning-input type="text" variant="label-hidden"></lightning-input>
+            </lightning-layout-item>
+        </lightning-layout>
+        <lightning-layout>
+            <lightning-layout-item size="2">
+                <h1 class="slds-text-heading_small slds-m-bottom_medium slds-text-align_center">Material Group Description</h1>
+            </lightning-layout-item>
+            <lightning-layout-item size="9">
+                <lightning-input type="text" variant="label-hidden"></lightning-input>
+            </lightning-layout-item>
+        </lightning-layout>
+        <lightning-layout>
+            <lightning-layout-item size="2">
+                <h1 class="slds-text-heading_small slds-m-bottom_medium slds-text-align_center">Subject code</h1>
+            </lightning-layout-item>
+            <lightning-layout-item size="9">
+                <lightning-input type="text" variant="label-hidden"></lightning-input>
+            </lightning-layout-item>
+        </lightning-layout>
+        <lightning-layout>
+            <lightning-layout-item size="2">
+                <h1 class="slds-text-heading_small slds-m-bottom_medium slds-text-align_center">Diagnostic Description</h1>
+            </lightning-layout-item>
+            <lightning-layout-item size="9">
+                <lightning-input type="text" variant="label-hidden"></lightning-input>
+            </lightning-layout-item>
+        </lightning-layout>
+        <lightning-layout>
+            <lightning-layout-item size="2">
+                <h1 class="slds-text-heading_small slds-m-bottom_medium slds-text-align_center">Qure channel</h1>
+            </lightning-layout-item>
+            <lightning-layout-item size="9">
+                <lightning-input type="text" variant="label-hidden"></lightning-input>
+            </lightning-layout-item>
+        </lightning-layout>
+        <lightning-layout>
+            <lightning-layout-item size="2">
+                <h1 class="slds-text-heading_small slds-m-bottom_medium slds-text-align_center">폐기대상</h1>
+            </lightning-layout-item>
+            <lightning-layout-item>
+                <lightning-input type="checkbox" variant="label-hidden"></lightning-input>
+            </lightning-layout-item>
+        </lightning-layout>
+        <lightning-layout>
+            <lightning-layout-item size="2">
+                <h1 class="slds-text-heading_small slds-m-bottom_medium slds-text-align_center">PRODUCTION_DATE</h1>
+            </lightning-layout-item>
+            <lightning-layout-item size="9">
+                <lightning-input type="text" variant="label-hidden"></lightning-input>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+    <lightning-card title="최근입고내역" style="padding: 16px;">
+        <lightning-layout horizontal-align="left">
+            <lightning-layout-item size="1"></lightning-layout-item>
+            <lightning-layout-item size="1">
+                <lightning-combobox name="comboDemo"
+                                    value="test"
+                                    options={options}
+                                    onchange={handleChange}
+                                    variant="label-hidden">
+                </lightning-combobox>
+            </lightning-layout-item>
+            <lightning-layout-item size="3">
+                <lightning-input type="text" variant="label-hidden"></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item size="2"></lightning-layout-item>
+            <lightning-layout-item size="1">
+                <lightning-button label="상태구분" class="slds-m-left_x-small" disable-animation="true"></lightning-button>
+            </lightning-layout-item>
+            <lightning-layout-item size="2">
+                <lightning-combobox name="comboStatus"
+                                    value="test"
+                                    options={options2}
+                                    onchange={handleChange2}
+                                    variant="label-hidden">
+                                </lightning-combobox>
+            </lightning-layout-item>
+            <lightning-layout-item size="1">
+                <lightning-button variant="brand" label="검색" onclick={onclick2} class="slds-m-left_x-small"></lightning-button>
+            </lightning-layout-item>
+        </lightning-layout>
+        <lightning-layout style="padding: 16px;">
+            <lightning-layout-item>
+                <lightning-button-group>
+                    <lightning-button label="항목선택"></lightning-button>
+                    <lightning-button label="복사"></lightning-button>
+                    <lightning-button label="등록" variant="brand"></lightning-button>
+                    <lightning-button label="삭제" variant="destructive"></lightning-button>
+                </lightning-button-group>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+</template>
