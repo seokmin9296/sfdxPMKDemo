@@ -1,5 +1,6 @@
-import { LightningElement, wire } from 'lwc';
+import { LightningElement, wire, track } from 'lwc';
 import getProduct from '@salesforce/apex/ProductController.getProduct';
+import searchCodentify from '@salesforce/apex/ProductController.searchCodentify';
 
 const COLS = [  {label: '제품코덴티파이', fieldName: 'Product_codentify__c'},
                 {label: '일련번호', fieldName: 'Product_code__c'},
@@ -8,11 +9,35 @@ const COLS = [  {label: '제품코덴티파이', fieldName: 'Product_codentify__
             ];
 export default class Pmkdemo extends LightningElement {
     draftValues = [];
+    columns = COLS;
 
     @wire(getProduct)
     products;
 
-    columns = COLS;
+    @track inputCodentify;
+
+    handleCodentifyChange(){
+        this.inputCodentify = event.target.value;
+    }
+
+    searchCodentify(){
+        searchCodentify({ codentify: this.inputCodentify })
+        .then(result => {
+            let product = result[0];
+            this.template.querySelector("[data-id='MdInput']").value = product.MaterialDescription__c;
+            this.template.querySelector("[data-id='VersionInput']").value = product.Version__c;
+            this.template.querySelector("[data-id='MgdInput']").value = product.MaterialGroupDescription__c;
+            this.template.querySelector("[data-id='ScInput']").value = product.SubjectCode__c;
+            this.template.querySelector("[data-id='DdInput']").value = product.DiagnosticDescription__c;
+            this.template.querySelector("[data-id='QcInput']").value = product.QureChannel__c;
+            this.template.querySelector("[data-id='DisposeInput']").checked = product.Dispose__c;
+            this.template.querySelector("[data-id='PdInput']").value = product.ProductionDate__c;
+        })
+        .catch(error => {
+            alert('등록되지 않은 코덴티파이 값입니다.');
+        });
+    }
+
 
     // async handleSave(event){
     //     const updateFieids = event.detail.draftValues;
